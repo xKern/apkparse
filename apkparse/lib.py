@@ -17,7 +17,7 @@ class APKParse:
         self.release_type = None
         self.version_id = None
         self.version_code = None
-        self.version_name = None
+        self.version_string = None
         self.checksum = None
 
     def read_yaml(self):
@@ -43,10 +43,10 @@ class APKParse:
 
     def extract_information(self):
         self.version_code = self.yaml.get('versionInfo').get('versionCode')
-        self.version_name = self.yaml.get('versionInfo').get('versionName')
+        self.version_string = self.yaml.get('versionInfo').get('versionName')
 
         self.version_id = self.xml['manifest']['application']['meta-data'][0]['@android:value']
-        self.release_type = int(self.xml['manifest']['application']['meta-data'][1]['@android:value'])
+        self.release_type = self.xml['manifest']['application']['meta-data'][1]['@android:value']
         self.bundle_id = self.xml['manifest']['@package']
 
     def generate_checksum(self):
