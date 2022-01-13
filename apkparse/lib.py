@@ -60,7 +60,8 @@ class APKParse:
         self.checksum = checksum.hexdigest()
 
     def work(self):
-        runs = ['apktool', 'decode', self.apk_path, '-o', self.output_path]
+        runs = ['apktool', 'decode', self.apk_path, '-o',
+                self.output_path, '-f']
         subprocess.run(runs)
         self.read_yaml()
         self.read_xml()

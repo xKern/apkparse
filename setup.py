@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 DESCRIPTION = ('Simply python utility wrapping around apktool to extract apk'
                'information')
 LONG_DESCRIPTION = Path('readme.md').read_text()
