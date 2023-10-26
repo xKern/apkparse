@@ -61,7 +61,7 @@ class APKParse:
 
     def work(self):
         runs = ['apktool', 'decode', self.apk_path, '-o',
-                self.output_path]
+                self.output_path, '-f']
         subprocess.run(runs)
         self.read_yaml()
         self.read_xml()
